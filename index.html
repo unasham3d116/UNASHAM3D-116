@@ -1,0 +1,508 @@
+html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNASHAM3D | Official Website</title>
+    <style>
+/* Glitch Effect Keyframes & Styles */
+.glitch-title {
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: relative;
+    color: var(--text-color);
+    text-shadow: 0.05em 0 0 rgba(255, 62, 62, 0.75),
+                -0.025em -0.05em 0 rgba(0, 255, 204, 0.75),
+                0.025em 0.05em 0 rgba(0, 102, 255, 0.75);
+    animation: glitch-shake 500ms infinite;
+}
+
+.glitch-title::before,
+.glitch-title::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.glitch-title::before {
+    animation: glitch-slice-1 650ms infinite;
+    left: 2px;
+    text-shadow: -2px 0 var(--accent-color);
+    clip-path: inset(45% 0 30% 0);
+}
+
+.glitch-title::after {
+    animation: glitch-slice-2 400ms infinite;
+    left: -2px;
+    text-shadow: -2px 0 #00ffcc;
+    clip-path: inset(10% 0 85% 0);
+}
+
+@keyframes glitch-shake {
+    0% { text-shadow: 2px 4px 15px rgba(0,0,0,0.8); }
+    50% { text-shadow: -1px -2px 0 rgba(255, 62, 62, 0.5), 2px 1px 0 rgba(0, 255, 204, 0.5); }
+    100% { text-shadow: 2px 4px 15px rgba(0,0,0,0.8); }
+}
+
+@keyframes glitch-slice-1 {
+    0% { clip-path: inset(20% 0 50% 0); }
+    20% { clip-path: inset(80% 0 5% 0); }
+    40% { clip-path: inset(45% 0 30% 0); }
+    60% { clip-path: inset(10% 0 75% 0); }
+    80% { clip-path: inset(55% 0 15% 0); }
+    100% { clip-path: inset(30% 0 40% 0); }
+}
+
+@keyframes glitch-slice-2 {
+    0% { clip-path: inset(15% 0 80% 0); }
+    20% { clip-path: inset(40% 0 45% 0); }
+    40% { clip-path: inset(70% 0 10% 0); }
+    60% { clip-path: inset(5% 0 85% 0); }
+    80% { clip-path: inset(90% 0 2% 0); }
+    100% { clip-path: inset(25% 0 60% 0); }
+}
+
+/* Adjust title sizing perfectly for small mobile screens */
+@media (max-width: 768px) {
+    .glitch-title { font-size: 3.2rem; }
+}
+
+        /* Base Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        :root {
+            --bg-color: #000000;
+            --text-color: #07f507;
+            --accent-color: #07f507; /* Neon Green */
+            --muted-color: #888888;
+            --card-bg: #1c1c1c;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        .logo span {
+            color: var(--accent-color);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 30px;
+        }
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)), url('https://unsplash.com') no-repeat center center/cover;
+            padding: 0 20px;
+        }
+        #hero h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            animation: glitch 1s linear infinite alternate;
+        }
+        #hero p {
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--muted-color);
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: #e02626;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 10%;
+        }
+        section h2 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+        section h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        /* Music Section */
+        .music-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        .album-art {
+            background-color: var(--card-bg);
+            border: 1px solid #222;
+            padding: 20px;
+            text-align: center;
+            border-radius: 6px;
+        }
+        .album-art img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .album-art h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        .album-art p {
+            color: var(--muted-color);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* Tour Section */
+        .tour-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .tour-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #222;
+        }
+        .tour-date {
+            font-weight: bold;
+            color: var(--accent-color);
+            min-width: 120px;
+        }
+        .tour-venue {
+            flex-grow: 1;
+            padding-left: 20px;
+        }
+        .tour-venue span {
+            display: block;
+            color: var(--muted-color);
+            font-size: 0.85rem;
+        }
+        .tour-btn {
+            padding: 8px 20px;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        .tour-btn:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        /* Newsletter Section */
+        #newsletter {
+            background-color: var(--card-bg);
+            text-align: center;
+        }
+        #newsletter p {
+            margin-bottom: 30px;
+            color: var(--muted-color);
+        }
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 15px;
+            background-color: #0a0a0a;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        .newsletter-form button {
+            padding: 0 25px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #222;
+            color: var(--muted-color);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 3.5rem; }
+            .nav-links { display: none; } /* Simplified for mobile */
+            .tour-item { flex-direction: column; text-align: center; gap: 15px; }
+            .tour-venue { padding-left: 0; }
+            .newsletter-form { flex-direction: column; gap: 10px; }
+            .newsletter-form input, .newsletter-form button { border-radius: 4px; padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">UNASHAM3D<span></span></a>
+        <ul class="nav-links">
+            <li><a href="#merch">Merch</a></li>
+            <li><a href="https://linktr.ee/UNASHAM3D">LinkTree</a></li>
+            <li><a href="#contact">Message</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section with Header Image -->
+    <header id="hero" style="background: linear-gradient(rgba(10,10,10,0.5), rgba(10,10,10,0.85)), url('https://yt3.googleusercontent.com/gdgYl9cC21UeNpnfK0DzelYlqQurqRzB4fXBNfPL1lVu45PT_d1QRWAMMeBvnFwFzcGLB8f09Q=s160-c-k-c0x00ffffff-no-rj') no-repeat center center/cover;">
+            <h1 class="glitch-title" data-text="UNASHAM3D">UNASHAM3D</h1>
+            <p style="font-size: 1.2rem; letter-spacing: 3px; text-transform: uppercase; color: #ffffff; margin-bottom: 30px; text-shadow: 1px 2px 8px rgba(0,0,0,0.8);">New Single "By Our Side" Out Now</p>
+            <a href="https://www.youtube.com/watch?v=JunfZvX8Kb4&list=OLAK5uy_kCHTBOibnhrdmDOEAtaLF0G1gFCJ9KZFQ" class="btn">Listen Now</a>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" style="display: flex; align-items: center; justify-content: space-between; gap: 50px; flex-wrap: wrap; padding: 100px 10%;">
+        <!-- Bio on the Left -->
+        <div style="flex: 1; min-width: 300px;">
+            <h2 style="text-align: left; margin-bottom: 25px;">ABOUT UNASHAM3D</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 15px; color: #ffffff;">
+                SO IT’S TRUE, MY MUSIC IS GENERATED USING A.I. I WROTE THE SONG ‘TOOLS’ ABOUT THIS AND HOW I FEEL ABOUT IT. THE BOT IS NOT IN CONTROL OF ANYTHING, I AM THE ONE THAT APPROVES THE FINAL PRODUCT YOU HEAR. THIS THING IS NOT PERFECT NOR IN CONTROL. IT TAKES TIME EFFORT AND PATIENCE TO PULL THIS TOGETHER. I LOVE WRITING THE LYRICS AND THEN HEARING THEM COME TO LIFE. I FEEL BLESSED TO HAVE THE TALENT TO WRITE LYRICS AND TO HAVE A WAY TO DELIVER THE WORD TO YOU. WE ALL KNOW THE BOT HAS NO SOUL, NEITHER DOES ANY STREAMING PLATFORM YOU LISTEN TO. I HAVE ONE, I ALSO HAVE THOUGHTS AND EMOTIONS I WANT TO SHARE, AND NOW HAVE A WAY
+            </p>
+        </div>
+
+        <!-- Photo on the Right -->
+        <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
+            <img src="https://scontent-atl3-3.xx.fbcdn.net/v/t39.30808-6/705388186_122113303929288412_2542176801153848032_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=V_oOF49sWukQ7kNvwEJvidq&_nc_oc=AdrB1j68kmFPJ3Jk825M7Z0tjRxdQRgNuBJ9RF1hVcfm8AXwy-7Ei-SEbDjeU-Xu-M0&_nc_zt=23&_nc_ht=scontent-atl3-3.xx&_nc_gid=dlnsFGkpzmYhvu06cddyUQ&_nc_ss=7b2a8&oh=00_Af74myHySMxMbGSzTy5mD2NM-njoLFye4Lb688vV_URLMA&oe=6A15B245" 
+                 alt="UNASHAM3D Portrait" 
+                 style="width: 100%; max-width: 450px; aspect-ratio: 4/5; object-fit: cover; border-radius: 6px; border: 1px solid #222; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music">
+        <h2>Latest Releases</h2>
+        <div>
+            <!-- Album -->
+
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/51w1CcsTF1MDefYCGUHcMy?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5W5h7MwL3mqY8rkPI8g4bV?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2Z7jaavSDChGXiFQzEzmB2?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5cCWimiZ87oEi6MIngVvuh?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+        </div>
+    </section>
+
+    <!-- Dual Promo Image Links Section -->
+    <section id="merch" style="padding: 60px 10%; background-color: #0a0a0a;">
+        <h2>MERCH</h2>
+        <div style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; max-width: 1200px; margin: 0 auto;">
+            
+            <!-- Promo Link 1: Merch Store -->
+            <a href="https://streamlabs.com/plaindragoon/merch/5675253" target="_blank" style="flex: 1; min-width: 300px; position: relative; overflow: hidden; border-radius: 6px; border: 1px solid #222; aspect-ratio: 16/9; group; text-decoration: none; display: block;">
+                <!-- Background Image -->
+                <img src="https://uploads.twitchalerts.com/000/674/979/874/53928038-mockup-177251515716858-0.png" alt="Shop Official Merch" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <!-- Dark Overlay Text Box -->
+                <div style="position: absolute; inset: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; pointer-events: none;">
+                    <h3 style="color: #ffffff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; font-size: 1.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Camouflage Trucker Hat</h3>
+                    <p style="color: var(--accent-color); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">$23.00 &rarr;</p>
+                </div>
+            </a>
+
+            <!-- Promo Link 2: Smartlink / Streaming -->
+            <a href="https://streamlabs.com/plaindragoon/merch/5675263" target="_blank" style="flex: 1; min-width: 300px; position: relative; overflow: hidden; border-radius: 6px; border: 1px solid #222; aspect-ratio: 16/9; text-decoration: none; display: block;">
+                <!-- Background Image -->
+                <img src="https://uploads.twitchalerts.com/000/674/979/874/53928038-mockup-177251615115551-0.png" alt="Stream No Regrets" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <!-- Dark Overlay Text Box -->
+                <div style="position: absolute; inset: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; pointer-events: none;">
+                    <h3 style="color: #ffffff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; font-size: 1.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">5 Panel Trucker Cap</h3>
+                    <p style="color: var(--accent-color); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">$23.00 &rarr;</p>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section with Discord Webhook Integration -->
+    <section id="contact" style="background-color: #0d0d0d; border-top: 1px solid #1a1a1a;">
+        <h2 style="margin-bottom: 20px;">Send a Message</h2>
+        <p style="text-align: center; color: #ffffff; max-width: 600px; margin: 0 auto 40px; font-size: 0.95rem;">
+            Want to reach out? Drop your details below and it will land straight in my Discord.
+        </p>
+        
+        <form id="discordContactForm" style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;">
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 8px;">
+                    <label style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #ffffff;">Your Name</label>
+                    <input type="text" id="formName" required style="width: 100%; padding: 15px; background-color: var(--bg-color); border: 1px solid #333; color: white; border-radius: 4px; outline: none; font-size: 1rem; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--accent-color)'" onblur="this.style.borderColor='#333'">
+                </div>
+                <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 8px;">
+                    <label style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #ffffff;">Your Email</label>
+                    <input type="email" id="formEmail" required style="width: 100%; padding: 15px; background-color: var(--bg-color); border: 1px solid #333; color: white; border-radius: 4px; outline: none; font-size: 1rem; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--accent-color)'" onblur="this.style.borderColor='#333'">
+                </div>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #ffffff;">Message</label>
+                <textarea id="formMessage" rows="6" required style="width: 100%; padding: 15px; background-color: var(--bg-color); border: 1px solid #333; color: white; border-radius: 4px; outline: none; font-size: 1rem; resize: vertical; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--accent-color)'" onblur="this.style.borderColor='#333'"></textarea>
+            </div>
+            
+            <button type="submit" class="btn" style="border: none; cursor: pointer; align-self: flex-start; padding: 15px 40px;">Send Message</button>
+        </form>
+    </section>
+
+
+
+        <!-- Footer with Social Links -->
+    <footer style="text-align: center; padding: 60px 20px; border-top: 1px solid #222; color: var(--bg-color); font-size: 0.85rem;">
+        <!-- Social Icons Container -->
+        <div style="display: flex; justify-content: center; gap: 25px; margin-bottom: 30px;">
+            <a href="https://www.facebook.com/profile.php?id=61588652371878" target="_blank" style="color: #ffffff; font-weight: bold; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='#ffffff'">Facebook</a>
+            <a href="https://open.spotify.com/artist/2oXQMIhRG5rOxAtEjKGlUk?si=uV8eaeMtQnOviW7gr3-GMg" target="_blank" style="color: #ffffff; font-weight: bold; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='#ffffff'">Spotify</a>
+            <a href="https://www.youtube.com/@unasham3d-116-for-lif3" target="_blank" style="color: #ffffff; font-weight: bold; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='#ffffff'">YouTube</a>
+            <a href="https://music.apple.com/us/artist/unasham3d/1877469834" target="_blank" style="color: #ffffff; font-weight: bold; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='#ffffff'">Apple Music</a>
+        </div>
+        
+        <p style="color: #ffffff;"> &copy; 2026 UNASHAM3D. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('discordContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // ⚠️ REPLACE THIS URL WITH YOUR ACTUAL DISCORD WEBHOOK URL
+            const webhookUrl = "https://discord.com/api/webhooks/1459277888636583987/dNfimpFdwIFnyhoNQktDzr4uBf7L5AvNnUOjPL56-mHzFw6cP3QwA2qZrkZW3M_iAmBd";
+
+            const name = document.getElementById('formName').value;
+            const email = document.getElementById('formEmail').value;
+            const message = document.getElementById('formMessage').value;
+
+            // Format the message nicely using Discord embeds
+            const requestData = {
+                embeds: [{
+                    title: "📥 New Website Message from " + name,
+                    color: 16727614, // Hex code converted to decimal (#ff3e3e matches your site's accent)
+                    fields: [
+                        { name: "👤 Name", value: name, inline: true },
+                        { name: "✉️ Email", value: email, inline: true },
+                        { name: "💬 Message", value: message }
+                    ],
+                    footer: { text: "UNASHAM3D Official Website" },
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(requestData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Message sent successfully!');
+                    document.getElementById('discordContactForm').reset();
+                } else {
+                    alert('There was a problem sending your message. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            });
+        });
+    </script>
+
+</body>
+</html>
