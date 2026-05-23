@@ -499,15 +499,28 @@ import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTim
 
 
   // 1. PASTE YOUR EXACT FIREBASE CONFIGURATION OBJECT HERE:
-  const firebaseConfig = {
-    apiKey: "AIzaSyBhhn5zwTIASHyWFXybqEYQ80Zs6Rwbau0",
-    authDomain: "unasham3d116.firebaseapp.com",
-    projectId: "unasham3d116",
-    storageBucket: "unasham3d116.firebasestorage.app",
-    messagingSenderId: "65072384449",
-    appId: "1:65072384449:web:725278fba3bb456dc08740",
-    measurementId: "G-89TF5K7TXN"
-  };
+    // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBhhn5zwTIASHyWFXybqEYQ80Zs6Rwbau0",
+  authDomain: "unasham3d116.firebaseapp.com",
+  projectId: "unasham3d116",
+  storageBucket: "unasham3d116.firebasestorage.app",
+  messagingSenderId: "65072384449",
+  appId: "1:65072384449:web:725278fba3bb456dc08740",
+  measurementId: "G-89TF5K7TXN"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 
   // Initialize Firebase and Firestore Database
   const app = initializeApp(firebaseConfig);
