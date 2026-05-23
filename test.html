@@ -1,3 +1,4 @@
+
 html<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -370,6 +371,77 @@ html<!DOCTYPE html>
             .newsletter-form { flex-direction: column; gap: 10px; }
             .newsletter-form input, .newsletter-form button { border-radius: 4px; padding: 15px; }
         }
+/* Guestbook Section Styling */
+#guestbook {
+    background-color: #000000;
+}
+#guestbook-form {
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+#guestbook-form input, 
+#guestbook-form textarea {
+    width: 100%;
+    padding: 12px;
+    background: #121212;
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+#guestbook-form input:focus, 
+#guestbook-form textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+#guestbook-form button {
+    padding: 12px;
+    background-color: var(--accent-color);
+    border: none;
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+#guestbook-form button:hover {
+    background-color: #ffffff;
+}
+
+/* Message Board Output Styling */
+#message-board {
+    max-width: 600px;
+    margin: 0 auto;
+    max-height: 400px;          /* Limits the vertical box height */
+    overflow-y: auto;          /* Automatically adds scrollbar when needed */
+    padding-right: 15px;       /* Keeps scrollbar from overlapping text cards */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.post-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 4px;
+    text-align: left;
+}
+.post-text {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+.post-author {
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
     </style>
 </head>
 <body>
@@ -378,10 +450,8 @@ html<!DOCTYPE html>
     <nav>
         <a href="index.html" class="logo">UNASHAM3D<span></span></a>
         <ul class="nav-links">
-            <li><a href="#merch">Merch</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="https://linktr.ee/UNASHAM3D">LinkTree</a></li>
-            <li><a href="#contact">Message</a></li>
-            <li><a href="test.html">Testimonies</a></li>
     </nav>
 
     <!-- Hero Section with Header Image -->
@@ -391,110 +461,21 @@ html<!DOCTYPE html>
             <a href="https://www.youtube.com/watch?v=JunfZvX8Kb4&list=OLAK5uy_kCHTBOibnhrdmDOEAtaLF0G1gFCJ9KZFQ" class="btn">Listen Now</a>
     </header>
 
-    <!-- About Me Section -->
-    <section id="about" style="display: flex; align-items: center; justify-content: space-between; gap: 50px; flex-wrap: wrap; padding: 100px 10%;">
-        <!-- Bio on the Left -->
-        <div style="flex: 1; min-width: 300px;">
-            <h2 style="text-align: left; margin-bottom: 25px;">ABOUT UNASHAM3D</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 15px; color: #ffffff;">
-                SO IT’S TRUE, MY MUSIC IS GENERATED USING A.I. I WROTE THE SONG ‘TOOLS’ ABOUT THIS AND HOW I FEEL ABOUT IT. THE BOT IS NOT IN CONTROL OF ANYTHING, I AM THE ONE THAT APPROVES THE FINAL PRODUCT YOU HEAR. THIS THING IS NOT PERFECT NOR IN CONTROL. IT TAKES TIME EFFORT AND PATIENCE TO PULL THIS TOGETHER. I LOVE WRITING THE LYRICS AND THEN HEARING THEM COME TO LIFE. I FEEL BLESSED TO HAVE THE TALENT TO WRITE LYRICS AND TO HAVE A WAY TO DELIVER THE WORD TO YOU. WE ALL KNOW THE BOT HAS NO SOUL, NEITHER DOES ANY STREAMING PLATFORM YOU LISTEN TO. I HAVE ONE, I ALSO HAVE THOUGHTS AND EMOTIONS I WANT TO SHARE, AND NOW HAVE A WAY
-            </p>
-        </div>
+<!-- Guestbook / Prayer Wall Section -->
+<section id="guestbook">
+    <h2>Wall of Testimony</h2>
+    <p style="color: var(--muted-color); text-align: center; margin-bottom: 30px;">Leave a message, prayer request, or shoutout below.</p>
+    
+    <!-- Input Form -->
+    <form id="guestbook-form">
+        <input type="text" id="guest-name" placeholder="Your Name" required>
+        <textarea id="guest-message" rows="4" placeholder="Your Message..." required></textarea>
+        <button type="submit">Post Message</button>
+    </form>
 
-        <!-- Photo on the Right -->
-        <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-            <img src="https://scontent-atl3-3.xx.fbcdn.net/v/t39.30808-6/705388186_122113303929288412_2542176801153848032_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=V_oOF49sWukQ7kNvwEJvidq&_nc_oc=AdrB1j68kmFPJ3Jk825M7Z0tjRxdQRgNuBJ9RF1hVcfm8AXwy-7Ei-SEbDjeU-Xu-M0&_nc_zt=23&_nc_ht=scontent-atl3-3.xx&_nc_gid=dlnsFGkpzmYhvu06cddyUQ&_nc_ss=7b2a8&oh=00_Af74myHySMxMbGSzTy5mD2NM-njoLFye4Lb688vV_URLMA&oe=6A15B245" 
-                 alt="UNASHAM3D Portrait" 
-                 style="width: 100%; max-width: 450px; aspect-ratio: 4/5; object-fit: cover; border-radius: 6px; border: 1px solid #222; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-        </div>
-    </section>
-
-    <!-- Music Section -->
-    <section id="music">
-        <h2>Latest Releases</h2>
-        <div>
-            <!-- Album -->
-
-                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/51w1CcsTF1MDefYCGUHcMy?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5W5h7MwL3mqY8rkPI8g4bV?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2Z7jaavSDChGXiFQzEzmB2?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5cCWimiZ87oEi6MIngVvuh?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-        </div>
-    </section>
-
-    <!-- Dual Promo Image Links Section -->
-    <section id="merch" style="padding: 60px 10%; background-color: #0a0a0a;">
-        <h2>MERCH</h2>
-        <div style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; max-width: 1200px; margin: 0 auto;">
-            
-            <!-- Promo Link 1: Merch Store -->
-            <a href="https://streamlabs.com/plaindragoon/merch/5675253" target="_blank" style="flex: 1; min-width: 300px; position: relative; overflow: hidden; border-radius: 6px; border: 1px solid #222; aspect-ratio: 16/9; group; text-decoration: none; display: block;">
-                <!-- Background Image -->
-                <img src="https://uploads.twitchalerts.com/000/674/979/874/53928038-mockup-177251515716858-0.png" alt="Shop Official Merch" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                <!-- Dark Overlay Text Box -->
-                <div style="position: absolute; inset: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; pointer-events: none;">
-                    <h3 style="color: #ffffff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; font-size: 1.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Camouflage Trucker Hat</h3>
-                    <p style="color: var(--accent-color); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">$23.00 &rarr;</p>
-                </div>
-            </a>
-
-            <!-- Promo Link 2: Smartlink / Streaming -->
-            <a href="https://streamlabs.com/plaindragoon/merch/5675263" target="_blank" style="flex: 1; min-width: 300px; position: relative; overflow: hidden; border-radius: 6px; border: 1px solid #222; aspect-ratio: 16/9; text-decoration: none; display: block;">
-                <!-- Background Image -->
-                <img src="https://uploads.twitchalerts.com/000/674/979/874/53928038-mockup-177251615115551-0.png" alt="Stream No Regrets" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                <!-- Dark Overlay Text Box -->
-                <div style="position: absolute; inset: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; pointer-events: none;">
-                    <h3 style="color: #ffffff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; font-size: 1.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">5 Panel Trucker Cap</h3>
-                    <p style="color: var(--accent-color); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">$23.00 &rarr;</p>
-                </div>
-            </a>
-
-        </div>
-    </section>
-
-
-
-    <!-- Contact Section with Discord Webhook Integration -->
-    <section id="contact" style="background-color: #0d0d0d; border-top: 1px solid #1a1a1a;">
-        <h2 style="margin-bottom: 20px;">Reach out</h2>
-        <p style="text-align: center; color: #ffffff; max-width: 600px; margin: 0 auto 40px; font-size: 0.95rem;">
-            Need Prayer? Or if you just want to Reach out, send a message and it will land straight in my Discord.
-        </p>
-        
-        <form id="discordContactForm" style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;">
-            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 8px;">
-                    <label style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #ffffff;">Your Name</label>
-                    <input type="text" id="formName" required style="width: 100%; padding: 15px; background-color: var(--bg-color); border: 1px solid #333; color: white; border-radius: 4px; outline: none; font-size: 1rem; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--accent-color)'" onblur="this.style.borderColor='#333'">
-                </div>
-                <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 8px;">
-                    <label style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #ffffff;">Your Email</label>
-                    <input type="email" id="formEmail" required style="width: 100%; padding: 15px; background-color: var(--bg-color); border: 1px solid #333; color: white; border-radius: 4px; outline: none; font-size: 1rem; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--accent-color)'" onblur="this.style.borderColor='#333'">
-                </div>
-            </div>
-            
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-                <label style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #ffffff;">Message</label>
-                <textarea id="formMessage" rows="6" required style="width: 100%; padding: 15px; background-color: var(--bg-color); border: 1px solid #333; color: white; border-radius: 4px; outline: none; font-size: 1rem; resize: vertical; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--accent-color)'" onblur="this.style.borderColor='#333'"></textarea>
-            </div>
-            
-            <button type="submit" class="btn" style="border: none; cursor: pointer; align-self: flex-start; padding: 15px 40px;">Send Message</button>
-        </form>
-    </section>
-
-    <!-- Daily Verse Section -->
-<section id="daily-verse">
-    <h2>Daily Verse</h2>
-    <div class="verse-box">
-        <p id="verse-text">"Loading scripture..."</p>
-        <span id="verse-reference"></span>
-    </div>
+    <!-- Message Display Board -->
+    <div id="message-board"></div>
 </section>
-
 
 
         <!-- Footer with Social Links -->
@@ -510,80 +491,83 @@ html<!DOCTYPE html>
         <p style="color: #ffffff;"> &copy; 2026 UNASHAM3D. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        document.getElementById('discordContactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+<!-- Firebase SDK Modules -->
+<script type="module">
+  // Import the necessary functions from the Firebase CDN links
+  import { initializeApp } from "https://www.gstatic.com";
+  import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com";
 
-            // ⚠️ REPLACE THIS URL WITH YOUR ACTUAL DISCORD WEBHOOK URL
-            const webhookUrl = "https://discord.com/api/webhooks/1459277888636583987/dNfimpFdwIFnyhoNQktDzr4uBf7L5AvNnUOjPL56-mHzFw6cP3QwA2qZrkZW3M_iAmBd";
+  // 1. PASTE YOUR EXACT FIREBASE CONFIGURATION OBJECT HERE:
+  const firebaseConfig = {
+    apiKey: "AIzaSyBhhn5zwTIASHyWFXybqEYQ80Zs6Rwbau0",
+    authDomain: "unasham3d116.firebaseapp.com",
+    projectId: "unasham3d116",
+    storageBucket: "unasham3d116.firebasestorage.app",
+    messagingSenderId: "65072384449",
+    appId: "1:65072384449:web:725278fba3bb456dc08740",
+    measurementId: "G-89TF5K7TXN"
+  };
 
-            const name = document.getElementById('formName').value;
-            const email = document.getElementById('formEmail').value;
-            const message = document.getElementById('formMessage').value;
+  // Initialize Firebase and Firestore Database
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const messagesCollection = collection(db, "testimony_wall");
 
-            // Format the message nicely using Discord embeds
-            const requestData = {
-                embeds: [{
-                    title: "📥 New Website Message from " + name,
-                    color: 16727614, // Hex code converted to decimal (#ff3e3e matches your site's accent)
-                    fields: [
-                        { name: "👤 Name", value: name, inline: true },
-                        { name: "✉️ Email", value: email, inline: true },
-                        { name: "💬 Message", value: message }
-                    ],
-                    footer: { text: "UNASHAM3D Official Website" },
-                    timestamp: new Date().toISOString()
-                }]
-            };
+  // Grab HTML elements
+  const guestForm = document.getElementById('guestbook-form');
+  const messageBoard = document.getElementById('message-board');
 
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(requestData)
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Message sent successfully!');
-                    document.getElementById('discordContactForm').reset();
-                } else {
-                    alert('There was a problem sending your message. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again later.');
-            });
+  // 2. Listen for Live Updates from Firebase (Real-time sync!)
+  // This automatically runs whenever ANYONE in the world posts a new message
+  const q = query(messagesCollection, orderBy("timestamp", "desc"));
+  onSnapshot(q, (snapshot) => {
+    // Clear the board first so we don't duplicate items
+    messageBoard.innerHTML = '';
+    
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      renderPost(data.name, data.message);
+    });
+  });
+
+  // 3. Handle Form Submission to Firebase Cloud
+  guestForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const nameInput = document.getElementById('guest-name');
+    const messageInput = document.getElementById('guest-message');
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (name && message) {
+      try {
+        // Send data straight to your Firestore collection securely
+        await addDoc(messagesCollection, {
+          name: name,
+          message: message,
+          timestamp: serverTimestamp() // Tracks exact order of posts
         });
-    </script>
+        
+        // Reset the form input spaces
+        guestForm.reset();
+      } catch (error) {
+        console.error("Error adding document: ", error);
+        alert("Something went wrong saving your message. Check console.");
+      }
+    }
+  });
 
-    <script>
-        const bibleVerses = [
-            { text: "For I am not ashamed of the gospel, because it is the power of God that brings salvation to everyone who believes.", ref: "Romans 1:16" },
-            { text: "Do not conform to the pattern of this world, but be transformed by the renewing of your mind.", ref: "Romans 12:2" },
-            { text: "But you are a chosen people, a royal priesthood, a holy nation, God’s special possession.", ref: "1 Peter 2:9" },
-            { text: "Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.", ref: "Joshua 1:9" },
-            { text: "I can do all this through him who gives me strength.", ref: "Philippians 4:13" },
-            { text: "Set your minds on things above, not on earthly things.", ref: "Colossians 3:2" },
-            { text: "For God has not given us a spirit of fear, but of power and of love and of a sound mind.", ref: "2 Timothy 1:7" }
-        ];
-
-        function displayDailyVerse() {
-            const now = new Date();
-            const start = new Date(now.getFullYear(), 0, 0);
-            const diff = now - start;
-            const oneDay = 1000 * 60 * 60 * 24;
-            const dayOfYear = Math.floor(diff / oneDay);
-            
-            const verseIndex = dayOfYear % bibleVerses.length;
-            const dailyVerse = bibleVerses[verseIndex];
-            
-            document.getElementById("verse-text").innerText = `"${dailyVerse.text}"`;
-            document.getElementById("verse-reference").innerText = dailyVerse.ref;
-        }
-
-        window.onload = displayDailyVerse;
-    </script>
-
-
+  // Helper function to turn text data into structured HTML elements
+  function renderPost(name, message) {
+    const card = document.createElement('div');
+    card.classList.add('post-card');
+    card.innerHTML = `
+        <p class="post-text">"${message}"</p>
+        <div class="post-author">— ${name}</div>
+    `;
+    messageBoard.appendChild(card);
+  }
+</script>
 </body>
 </html>
+
