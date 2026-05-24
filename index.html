@@ -370,6 +370,73 @@ html<!DOCTYPE html>
             .newsletter-form { flex-direction: column; gap: 10px; }
             .newsletter-form input, .newsletter-form button { border-radius: 4px; padding: 15px; }
         }
+
+        /* --- Desktop Navigation Defaults (Keep your existing nav styles, just add these values) --- */
+#menu-toggle {
+    display: none; /* Hide the checkbox everywhere */
+}
+
+/* --- Mobile Specific Overrides --- */
+@media (max-width: 768px) {
+    /* Turn the horizontal links list into a full screen dark drop-down menu */
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 70px; /* Aligns right beneath the fixed nav bar */
+        left: -100%; /* Hides the menu off-screen by default */
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(15px);
+        transition: left 0.4s ease;
+        padding: 40px 0;
+        text-align: center;
+    }
+
+    .nav-links li {
+        margin: 0 0 25px 0; /* Creates generous vertical gaps between links */
+    }
+
+    /* Make links physically larger so they are perfect thumb-targets */
+    .nav-links a {
+        font-size: 1.3rem;
+        display: block;
+        padding: 15px 0; /* Gives users a massive, tall clickable area */
+        width: 100%;
+    }
+
+    /* Reveal the mobile menu only when the invisible checkbox is ticked */
+    #menu-toggle:checked ~ .nav-links {
+        left: 0;
+    }
+
+    /* --- Hamburger Menu Icon Bars --- */
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1001;
+    }
+    .menu-icon span,
+    .menu-icon span::before,
+    .menu-icon span::after {
+        display: block;
+        background: var(--text-color); /* Matches your neon green color */
+        height: 3px;
+        width: 28px;
+        position: relative;
+        transition: background 0.2s ease-out;
+    }
+    .menu-icon span::before,
+    .menu-icon span::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+    }
+    .menu-icon span::before { top: 8px; }
+    .menu-icon span::after { top: -8px; }
+}
     </style>
 </head>
 <body>
@@ -377,11 +444,17 @@ html<!DOCTYPE html>
     <!-- Navigation -->
     <nav>
         <a href="index.html" class="logo">UNASHAM3D<span></span></a>
-        <ul class="nav-links">
+
+            <!-- The Hidden Toggle Switch for Mobile -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon"><span></span></label>
+
+    <ul class="nav-links">
             <li><a href="#merch">Merch</a></li>
             <li><a href="https://linktr.ee/UNASHAM3D">LinkTree</a></li>
             <li><a href="#contact">Message</a></li>
             <li><a href="test.html">Testimonies</a></li>
+      </ul>
     </nav>
 
     <!-- Hero Section with Header Image -->
