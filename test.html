@@ -5,456 +5,411 @@ html<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNASHAM3D | Official Website</title>
-    <style>
-/* Glitch Effect Keyframes & Styles */
-.glitch-title {
-    font-size: 5rem;
-    font-weight: 900;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    position: relative;
-    color: var(--text-color);
-    text-shadow: 0.05em 0 0 rgba(255, 62, 62, 0.75),
-                -0.025em -0.05em 0 rgba(0, 255, 204, 0.75),
-                0.025em 0.05em 0 rgba(0, 102, 255, 0.75);
-    animation: glitch-shake 500ms infinite;
+<style>
+:root{
+    --bg:#000;
+    --text:#07f507;
+    --accent:#07f507;
+    --muted:#888;
+    --card:#1c1c1c;
+}
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Helvetica,Arial,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+.container{
+    width:min(1200px,100%);
+    margin:auto;
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 5%;
+    background:rgba(0,0,0,.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #222;
+    z-index:1000;
+}
+
+.logo{
+    color:var(--text);
+    text-decoration:none;
+    font-size:1.5rem;
+    font-weight:900;
+    letter-spacing:3px;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.nav-links a{
+    color:var(--text);
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size:.9rem;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+/* HERO */
+#hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 20px;
+    background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.92)),
+    url('https://yt3.googleusercontent.com/gdgYl9cC21UeNpnfK0DzelYlqQurqRzB4fXBNfPL1lVu45PT_d1QRWAMMeBvnFwFzcGLB8f09Q=s160-c-k-c0x00ffffff-no-rj')
+    center/cover;
+}
+
+#hero p{
+    color:var(--muted);
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin:20px 0;
+}
+
+/* GLITCH TITLE */
+.glitch-title{
+    position:relative;
+    font-size:5rem;
+    font-weight:900;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:var(--text);
+
+    text-shadow:
+    0.05em 0 0 rgba(255,62,62,.75),
+    -0.025em -0.05em 0 rgba(0,255,204,.75),
+    0.025em 0.05em 0 rgba(0,102,255,.75);
+
+    animation:glitch-shake .5s infinite;
 }
 
 .glitch-title::before,
-.glitch-title::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
+.glitch-title::after{
+    content:attr(data-text);
+    position:absolute;
+    inset:0;
 }
 
-.glitch-title::before {
-    animation: glitch-slice-1 650ms infinite;
-    left: 2px;
-    text-shadow: -2px 0 var(--accent-color);
-    clip-path: inset(45% 0 30% 0);
+.glitch-title::before{
+    left:2px;
+    text-shadow:-2px 0 #ff3e3e;
+    clip-path:inset(45% 0 30% 0);
+    animation:glitch-slice-1 .65s infinite;
 }
 
-.glitch-title::after {
-    animation: glitch-slice-2 400ms infinite;
-    left: -2px;
-    text-shadow: -2px 0 #00ffcc;
-    clip-path: inset(10% 0 85% 0);
+.glitch-title::after{
+    left:-2px;
+    text-shadow:-2px 0 #00ffcc;
+    clip-path:inset(10% 0 85% 0);
+    animation:glitch-slice-2 .4s infinite;
 }
 
-@keyframes glitch-shake {
-    0% { text-shadow: 2px 4px 15px rgba(0,0,0,0.8); }
-    50% { text-shadow: -1px -2px 0 rgba(255, 62, 62, 0.5), 2px 1px 0 rgba(0, 255, 204, 0.5); }
-    100% { text-shadow: 2px 4px 15px rgba(0,0,0,0.8); }
+@keyframes glitch-shake{
+    0%,100%{
+        transform:translate(0);
+    }
+    20%{
+        transform:translate(-2px,2px);
+    }
+    40%{
+        transform:translate(-2px,-2px);
+    }
+    60%{
+        transform:translate(2px,2px);
+    }
+    80%{
+        transform:translate(2px,-2px);
+    }
 }
 
-@keyframes glitch-slice-1 {
-    0% { clip-path: inset(20% 0 50% 0); }
-    20% { clip-path: inset(80% 0 5% 0); }
-    40% { clip-path: inset(45% 0 30% 0); }
-    60% { clip-path: inset(10% 0 75% 0); }
-    80% { clip-path: inset(55% 0 15% 0); }
-    100% { clip-path: inset(30% 0 40% 0); }
+@keyframes glitch-slice-1{
+    0%{clip-path:inset(20% 0 50% 0);}
+    20%{clip-path:inset(80% 0 5% 0);}
+    40%{clip-path:inset(45% 0 30% 0);}
+    60%{clip-path:inset(10% 0 75% 0);}
+    80%{clip-path:inset(55% 0 15% 0);}
+    100%{clip-path:inset(30% 0 40% 0);}
 }
 
-@keyframes glitch-slice-2 {
-    0% { clip-path: inset(15% 0 80% 0); }
-    20% { clip-path: inset(40% 0 45% 0); }
-    40% { clip-path: inset(70% 0 10% 0); }
-    60% { clip-path: inset(5% 0 85% 0); }
-    80% { clip-path: inset(90% 0 2% 0); }
-    100% { clip-path: inset(25% 0 60% 0); }
+@keyframes glitch-slice-2{
+    0%{clip-path:inset(15% 0 80% 0);}
+    20%{clip-path:inset(40% 0 45% 0);}
+    40%{clip-path:inset(70% 0 10% 0);}
+    60%{clip-path:inset(5% 0 85% 0);}
+    80%{clip-path:inset(90% 0 2% 0);}
+    100%{clip-path:inset(25% 0 60% 0);}
 }
 
-/* Daily Verse Section Styling */
-#daily-verse {
-    background-color: #0d0d0d;
-    text-align: center;
-    padding: 100px 10%;
-}
-#daily-verse h2 {
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 50px;
-    position: relative;
-}
-#daily-verse h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 4px;
-    background: var(--accent-color);
-    margin: 10px auto 0;
-}
-.verse-box {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 30px;
-    background: var(--card-bg);
-    border: 1px dashed var(--accent-color);
-    border-radius: 6px;
-}
-/* Style adjustments targeting the injected third-party widget content safely */
-#dailyVersesWrapper {
-    font-size: 1.2rem !important;
-    color: #ffffff !important;
-    line-height: 1.6;
-}
-#dailyVersesWrapper a {
-    color: var(--accent-color) !important;
-    text-decoration: none !important;
-    font-weight: bold;
-    display: block;
-    margin-top: 15px;
+/* BUTTONS */
+.btn{
+    display:inline-block;
+    padding:12px 35px;
+    background:var(--accent);
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+    text-transform:uppercase;
+    border-radius:4px;
+    transition:.3s;
 }
 
-/* Adjust title sizing perfectly for small mobile screens */
-@media (max-width: 768px) {
-    .glitch-title { font-size: 3.2rem; }
+.btn:hover{
+    transform:scale(1.05);
+    background:#fff;
 }
 
-        /* Base Reset & Variables */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        }
-        :root {
-            --bg-color: #000000;
-            --text-color: #07f507;
-            --accent-color: #07f507; /* Neon Green */
-            --muted-color: #888888;
-            --card-bg: #1c1c1c;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: rgba(10, 10, 10, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid #222;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            letter-spacing: 3px;
-            color: var(--text-color);
-            text-decoration: none;
-        }
-        .logo span {
-            color: var(--accent-color);
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        .nav-links li {
-            margin-left: 30px;
-        }
-        .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Hero Section */
-        #hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)), url('https://unsplash.com') no-repeat center center/cover;
-            padding: 0 20px;
-        }
-        #hero h1 {
-            font-size: 5rem;
-            font-weight: 900;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            animation: glitch 1s linear infinite alternate;
-        }
-        #hero p {
-            font-size: 1.2rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--muted-color);
-            margin-bottom: 30px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 35px;
-            background-color: var(--accent-color);
-            color: white;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            transition: transform 0.3s, background-color 0.3s;
-        }
-        .btn:hover {
-            transform: scale(1.05);
-            background-color: #e02626;
-        }
-
-        /* Section Styling */
-        section {
-            padding: 100px 10%;
-        }
-        section h2 {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 50px;
-            text-align: center;
-            position: relative;
-        }
-        section h2::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background: var(--accent-color);
-            margin: 10px auto 0;
-        }
-
-        /* Newsletter Section */
-        #newsletter {
-            background-color: var(--card-bg);
-            text-align: center;
-        }
-        #newsletter p {
-            margin-bottom: 30px;
-            color: var(--muted-color);
-        }
-        .newsletter-form {
-            display: flex;
-            justify-content: center;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        .newsletter-form input {
-            flex-grow: 1;
-            padding: 15px;
-            background-color: #0a0a0a;
-            border: 1px solid #333;
-            color: white;
-            border-radius: 4px 0 0 4px;
-            outline: none;
-        }
-        .newsletter-form button {
-            padding: 0 25px;
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid #222;
-            color: var(--muted-color);
-            font-size: 0.85rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            #hero h1 { font-size: 3.5rem; }
-            .nav-links { display: none; } /* Simplified for mobile */
-            .tour-item { flex-direction: column; text-align: center; gap: 15px; }
-            .tour-venue { padding-left: 0; }
-            .newsletter-form { flex-direction: column; gap: 10px; }
-            .newsletter-form input, .newsletter-form button { border-radius: 4px; padding: 15px; }
-        }
-/* Guestbook Section Styling */
-#guestbook {
-    background-color: #000000;
-}
-#guestbook-form {
-    max-width: 600px;
-    margin: 0 auto 50px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-#guestbook-form input, 
-#guestbook-form textarea {
-    width: 100%;
-    padding: 12px;
-    background: #121212;
-    border: 1px solid #333;
-    color: #fff;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-#guestbook-form input:focus, 
-#guestbook-form textarea:focus {
-    border-color: var(--accent-color);
-    outline: none;
-}
-#guestbook-form button {
-    padding: 12px;
-    background-color: var(--accent-color);
-    border: none;
-    color: #000;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.3s;
-}
-#guestbook-form button:hover {
-    background-color: #ffffff;
+/* SECTIONS */
+section{
+    padding:100px 10%;
 }
 
-/* Message Board Output Styling */
-#message-board {
-    max-width: 600px;
-    margin: 0 auto;
-    max-height: 400px;          /* Limits the vertical box height */
-    overflow-y: auto;          /* Automatically adds scrollbar when needed */
-    padding-right: 15px;       /* Keeps scrollbar from overlapping text cards */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.post-card {
-    background: var(--card-bg);
-    padding: 20px;
-    border-left: 4px solid var(--accent-color);
-    border-radius: 4px;
-    text-align: left;
-}
-.post-text {
-    color: #ffffff;
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-}
-.post-author {
-    color: var(--accent-color);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-                /* Responsive Design */
-        @media (max-width: 768px) {
-            #hero h1 { font-size: 3.5rem; }
-            .nav-links { display: none; } /* Simplified for mobile */
-            .tour-item { flex-direction: column; text-align: center; gap: 15px; }
-            .tour-venue { padding-left: 0; }
-            .newsletter-form { flex-direction: column; gap: 10px; }
-            .newsletter-form input, .newsletter-form button { border-radius: 4px; padding: 15px; }
-        }
-
-        /* --- Desktop Navigation Defaults (Keep your existing nav styles, just add these values) --- */
-#menu-toggle {
-    display: none; /* Hide the checkbox everywhere */
+section h2{
+    text-align:center;
+    font-size:2.5rem;
+    text-transform:uppercase;
+    margin-bottom:50px;
+    letter-spacing:2px;
 }
 
-/* --- Mobile Specific Overrides --- */
-@media (max-width: 768px) {
-    /* Turn the horizontal links list into a full screen dark drop-down menu */
-    .nav-links {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 70px; /* Aligns right beneath the fixed nav bar */
-        left: -100%; /* Hides the menu off-screen by default */
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: rgba(10, 10, 10, 0.98);
-        backdrop-filter: blur(15px);
-        transition: left 0.4s ease;
-        padding: 40px 0;
-        text-align: center;
+section h2::after{
+    content:'';
+    display:block;
+    width:50px;
+    height:4px;
+    background:var(--accent);
+    margin:10px auto 0;
+}
+
+/* SPOTIFY GRID */
+.spotify-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:20px;
+}
+
+.spotify-grid iframe{
+    width:100%;
+    border:none;
+}
+
+/* DAILY VERSE */
+#daily-verse{
+    background:#0d0d0d;
+    text-align:center;
+}
+
+.verse-box{
+    max-width:700px;
+    margin:auto;
+    padding:30px;
+    background:var(--card);
+    border:1px dashed var(--accent);
+    border-radius:6px;
+}
+
+#dailyVersesWrapper{
+    color:#fff !important;
+    font-size:1.2rem !important;
+    line-height:1.6;
+}
+
+/* NEWSLETTER */
+#newsletter{
+    background:var(--card);
+    text-align:center;
+}
+
+.newsletter-form{
+    max-width:500px;
+    margin:auto;
+    display:flex;
+}
+
+.newsletter-form input{
+    flex:1;
+    padding:15px;
+    background:#0a0a0a;
+    border:1px solid #333;
+    color:#fff;
+}
+
+.newsletter-form button{
+    border:none;
+    padding:0 25px;
+    background:var(--accent);
+    color:#000;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* GUESTBOOK */
+#guestbook-form{
+    max-width:600px;
+    margin:0 auto 50px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+#guestbook-form input,
+#guestbook-form textarea{
+    padding:12px;
+    background:#121212;
+    border:1px solid #333;
+    color:#fff;
+    border-radius:4px;
+}
+
+#message-board{
+    max-width:600px;
+    margin:auto;
+    max-height:400px;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.post-card{
+    background:var(--card);
+    padding:20px;
+    border-left:4px solid var(--accent);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:40px;
+    border-top:1px solid #222;
+    color:var(--muted);
+}
+
+/* MOBILE MENU */
+#menu-toggle{
+    display:none;
+}
+
+.menu-icon{
+    display:none;
+}
+
+@media(max-width:768px){
+
+    .glitch-title{
+        font-size:3rem;
     }
 
-    .nav-links li {
-        margin: 0 0 25px 0; /* Creates generous vertical gaps between links */
+    .menu-icon{
+        display:block;
+        cursor:pointer;
+        z-index:1001;
     }
 
-    /* Make links physically larger so they are perfect thumb-targets */
-    .nav-links a {
-        font-size: 1.3rem;
-        display: block;
-        padding: 15px 0; /* Gives users a massive, tall clickable area */
-        width: 100%;
-    }
-
-    /* Reveal the mobile menu only when the invisible checkbox is ticked */
-    #menu-toggle:checked ~ .nav-links {
-        left: 0;
-    }
-
-    /* --- Hamburger Menu Icon Bars --- */
-    .menu-icon {
-        display: block;
-        cursor: pointer;
-        padding: 10px;
-        z-index: 1001;
-    }
     .menu-icon span,
     .menu-icon span::before,
-    .menu-icon span::after {
-        display: block;
-        background: var(--text-color); /* Matches your neon green color */
-        height: 3px;
-        width: 28px;
-        position: relative;
-        transition: background 0.2s ease-out;
+    .menu-icon span::after{
+        display:block;
+        width:28px;
+        height:3px;
+        background:var(--text);
+        position:relative;
     }
-    .menu-icon span::before,
-    .menu-icon span::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-    }
-    .menu-icon span::before { top: 8px; }
-    .menu-icon span::after { top: -8px; }
-}
-        
 
-    </style>
+    .menu-icon span::before,
+    .menu-icon span::after{
+        content:'';
+        position:absolute;
+        width:100%;
+    }
+
+    .menu-icon span::before{
+        top:8px;
+    }
+
+    .menu-icon span::after{
+        top:-8px;
+    }
+
+    .nav-links{
+        position:fixed;
+        top:70px;
+        left:-100%;
+        width:100%;
+        height:calc(100vh - 70px);
+        background:rgba(0,0,0,.98);
+        flex-direction:column;
+        justify-content:flex-start;
+        align-items:center;
+        padding-top:40px;
+        transition:.4s;
+    }
+
+    #menu-toggle:checked ~ .nav-links{
+        left:0;
+    }
+
+    .nav-links a{
+        font-size:1.3rem;
+        padding:15px 0;
+    }
+
+    .newsletter-form{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    #about{
+        text-align:center;
+    }
+}
+</style>
 </head>
 <body>
 
     <!-- Navigation -->
     <nav>
         <a href="index.html" class="logo">UNASHAM3D<span></span></a>
+        <input type="checkbox" id="menu-toggle">
+
+<label for="menu-toggle" class="menu-icon">
+    <span></span>
+</label>
         <ul class="nav-links">
             <li><a href="shop.html">Shop</a></li>
             <li><a href="https://linktr.ee/UNASHAM3D">LinkTree</a></li>
