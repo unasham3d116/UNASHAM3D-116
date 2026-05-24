@@ -11,7 +11,7 @@
 }
 /* Glitch Effect Keyframes & Styles */
 .glitch-title {
-    font-size: 3rem;
+    font-size: 5rem;
     font-weight: 900;
     letter-spacing: 5px;
     text-transform: uppercase;
@@ -188,7 +188,7 @@
 
         /* Hero Section */
         #hero {
-            height: 100vh;
+            height: 75vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -198,9 +198,9 @@
             padding: 0 20px;
         }
         #hero h1 {
-            font-size: 5rem;
-            font-weight: 900;
-            letter-spacing: 5px;
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: 4px;
             text-transform: uppercase;
             margin-bottom: 10px;
             animation: glitch 1s linear infinite alternate;
@@ -344,6 +344,19 @@
 .spotify-grid iframe{
     width:100%;
     border:none;
+}
+        @media (max-width: 768px) {
+    /* ... your existing mobile menu and layout overrides ... */
+
+    /* Centers the entire About / Testimony block text on phones */
+    #about {
+        text-align: center;
+    }
+
+    #about p {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
     </style>
 </head>
