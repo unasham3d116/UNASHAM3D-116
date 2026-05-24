@@ -5,6 +5,10 @@ html<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNASHAM3D | Official Website</title>
     <style>
+       .container{
+    width:min(1200px, 100%);
+    margin:auto;
+}
 /* Glitch Effect Keyframes & Styles */
 .glitch-title {
     font-size: 5rem;
@@ -190,7 +194,7 @@ html<!DOCTYPE html>
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)), url('https://unsplash.com') no-repeat center center/cover;
+            background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)), no-repeat center center/cover;
             padding: 0 20px;
         }
         #hero h1 {
@@ -244,112 +248,6 @@ html<!DOCTYPE html>
             height: 4px;
             background: var(--accent-color);
             margin: 10px auto 0;
-        }
-
-        /* Music Section */
-        .music-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        .album-art {
-            background-color: var(--card-bg);
-            border: 1px solid #222;
-            padding: 20px;
-            text-align: center;
-            border-radius: 6px;
-        }
-        .album-art img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 15px;
-        }
-        .album-art h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-        .album-art p {
-            color: var(--muted-color);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        /* Tour Section */
-        .tour-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .tour-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #222;
-        }
-        .tour-date {
-            font-weight: bold;
-            color: var(--accent-color);
-            min-width: 120px;
-        }
-        .tour-venue {
-            flex-grow: 1;
-            padding-left: 20px;
-        }
-        .tour-venue span {
-            display: block;
-            color: var(--muted-color);
-            font-size: 0.85rem;
-        }
-        .tour-btn {
-            padding: 8px 20px;
-            border: 1px solid var(--text-color);
-            color: var(--text-color);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-        }
-        .tour-btn:hover {
-            background-color: var(--text-color);
-            color: var(--bg-color);
-        }
-
-        /* Newsletter Section */
-        #newsletter {
-            background-color: var(--card-bg);
-            text-align: center;
-        }
-        #newsletter p {
-            margin-bottom: 30px;
-            color: var(--muted-color);
-        }
-        .newsletter-form {
-            display: flex;
-            justify-content: center;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        .newsletter-form input {
-            flex-grow: 1;
-            padding: 15px;
-            background-color: #0a0a0a;
-            border: 1px solid #333;
-            color: white;
-            border-radius: 4px 0 0 4px;
-            outline: none;
-        }
-        .newsletter-form button {
-            padding: 0 25px;
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-weight: bold;
         }
 
         /* Footer */
@@ -437,6 +335,16 @@ html<!DOCTYPE html>
     .menu-icon span::before { top: 8px; }
     .menu-icon span::after { top: -8px; }
 }
+.spotify-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:20px;
+}
+
+.spotify-grid iframe{
+    width:100%;
+    border:none;
+}
     </style>
 </head>
 <body>
@@ -485,16 +393,16 @@ html<!DOCTYPE html>
     <!-- Music Section -->
     <section id="music">
         <h2>Latest Releases</h2>
-        <div>
+        <div class="spotify-grid">
             <!-- Album -->
 
-                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/51w1CcsTF1MDefYCGUHcMy?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/51w1CcsTF1MDefYCGUHcMy?utm_source=generator"  height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5W5h7MwL3mqY8rkPI8g4bV?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5W5h7MwL3mqY8rkPI8g4bV?utm_source=generator" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2Z7jaavSDChGXiFQzEzmB2?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2Z7jaavSDChGXiFQzEzmB2?utm_source=generator" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5cCWimiZ87oEi6MIngVvuh?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5cCWimiZ87oEi6MIngVvuh?utm_source=generator" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
         </div>
     </section>
@@ -588,7 +496,7 @@ html<!DOCTYPE html>
             e.preventDefault();
 
             // ⚠️ REPLACE THIS URL WITH YOUR ACTUAL DISCORD WEBHOOK URL
-            const webhookUrl = "https://discord.com/api/webhooks/1459277888636583987/dNfimpFdwIFnyhoNQktDzr4uBf7L5AvNnUOjPL56-mHzFw6cP3QwA2qZrkZW3M_iAmBd";
+            const webhookUrl = "https://discord.com/api/webhooks/1507944551363383356/o3tEgJkIZ-DQZbSATWzGZQzWbZX5Vzx2ouUK3uDYu8iIqxaAJykwJsL1usPGQ6q5VSDO";
 
             const name = document.getElementById('formName').value;
             const email = document.getElementById('formEmail').value;
