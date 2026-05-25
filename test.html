@@ -95,89 +95,68 @@ nav{
     url('https://yt3.googleusercontent.com/gdgYl9cC21UeNpnfK0DzelYlqQurqRzB4fXBNfPL1lVu45PT_d1QRWAMMeBvnFwFzcGLB8f09Q=s160-c-k-c0x00ffffff-no-rj')
     center/cover;
 }
-
-#hero p{
-    color:var(--muted);
-    letter-spacing:4px;
-    text-transform:uppercase;
-    margin:20px 0;
-}
-
-/* GLITCH TITLE */
-.glitch-title{
-    position:relative;
-    font-size:5rem;
-    font-weight:900;
-    letter-spacing:5px;
-    text-transform:uppercase;
-    color:var(--text);
-
-    text-shadow:
-    0.05em 0 0 rgba(255,62,62,.75),
-    -0.025em -0.05em 0 rgba(0,255,204,.75),
-    0.025em 0.05em 0 rgba(0,102,255,.75);
-
-    animation:glitch-shake .5s infinite;
+/* Glitch Effect Keyframes & Styles */
+.glitch-title {
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: relative;
+    color: var(--text-color);
+    text-shadow: 0.05em 0 0 rgba(255, 62, 62, 0.75),
+                -0.025em -0.05em 0 rgba(0, 255, 204, 0.75),
+                0.025em 0.05em 0 rgba(0, 102, 255, 0.75);
+    animation: glitch-shake 500ms infinite;
 }
 
 .glitch-title::before,
-.glitch-title::after{
-    content:attr(data-text);
-    position:absolute;
-    inset:0;
-    background: var(--bg, #000);
-    mix-blend-mode: screen;
+.glitch-title::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
 }
 
-.glitch-title::before{
-    left:2px;
-    text-shadow:-2px 0 #ff3e3e;
-    clip-path:inset(45% 0 30% 0);
-    animation:glitch-slice-1 .65s infinite;
+.glitch-title::before {
+    animation: glitch-slice-1 650ms infinite;
+    left: 2px;
+    text-shadow: -2px 0 var(--accent-color);
+    clip-path: inset(45% 0 30% 0);
 }
 
-.glitch-title::after{
-    left:-2px;
-    text-shadow:-2px 0 #00ffcc;
-    clip-path:inset(10% 0 85% 0);
-    animation:glitch-slice-2 .9s infinite;
+.glitch-title::after {
+    animation: glitch-slice-2 400ms infinite;
+    left: -2px;
+    text-shadow: -2px 0 #00ffcc;
+    clip-path: inset(10% 0 85% 0);
 }
 
-@keyframes glitch-shake{
-    0%,100%{
-        transform:translate(0);
-    }
-    20%{
-        transform:translate(-2px,2px);
-    }
-    40%{
-        transform:translate(-2px,-2px);
-    }
-    60%{
-        transform:translate(2px,2px);
-    }
-    80%{
-        transform:translate(2px,-2px);
-    }
+@keyframes glitch-shake {
+    0% { text-shadow: 2px 4px 15px rgba(0,0,0,0.8); }
+    50% { text-shadow: -1px -2px 0 rgba(255, 62, 62, 0.5), 2px 1px 0 rgba(0, 255, 204, 0.5); }
+    100% { text-shadow: 2px 4px 15px rgba(0,0,0,0.8); }
 }
 
-@keyframes glitch-slice-1{
-    0%{clip-path:inset(20% 0 50% 0);}
-    20%{clip-path:inset(80% 0 5% 0);}
-    40%{clip-path:inset(45% 0 30% 0);}
-    60%{clip-path:inset(10% 0 75% 0);}
-    80%{clip-path:inset(55% 0 15% 0);}
-    100%{clip-path:inset(30% 0 40% 0);}
+@keyframes glitch-slice-1 {
+    0% { clip-path: inset(20% 0 50% 0); }
+    20% { clip-path: inset(80% 0 5% 0); }
+    40% { clip-path: inset(45% 0 30% 0); }
+    60% { clip-path: inset(10% 0 75% 0); }
+    80% { clip-path: inset(55% 0 15% 0); }
+    100% { clip-path: inset(30% 0 40% 0); }
 }
 
-@keyframes glitch-slice-2{
-    0%{clip-path:inset(15% 0 80% 0);}
-    20%{clip-path:inset(40% 0 45% 0);}
-    40%{clip-path:inset(70% 0 10% 0);}
-    60%{clip-path:inset(5% 0 85% 0);}
-    80%{clip-path:inset(90% 0 2% 0);}
-    100%{clip-path:inset(25% 0 60% 0);}
-}
+@keyframes glitch-slice-2 {
+    0% { clip-path: inset(15% 0 80% 0); }
+    20% { clip-path: inset(40% 0 45% 0); }
+    40% { clip-path: inset(70% 0 10% 0); }
+    60% { clip-path: inset(5% 0 85% 0); }
+    80% { clip-path: inset(90% 0 2% 0); }
+    100% { clip-path: inset(25% 0 60% 0); }
 
 /* BUTTONS */
 .btn{
@@ -420,10 +399,10 @@ footer{
             <li><a href="test.html">Testimonies</a></li>
     </nav>
 
-    <!-- Hero Section with Header Image -->
+         <!-- Hero Section with Header Image -->
     <header id="hero" style="background: linear-gradient(rgba(10,10,10,0.5), rgba(10,10,10,0.85)), url('https://yt3.googleusercontent.com/gdgYl9cC21UeNpnfK0DzelYlqQurqRzB4fXBNfPL1lVu45PT_d1QRWAMMeBvnFwFzcGLB8f09Q=s160-c-k-c0x00ffffff-no-rj') no-repeat center center/cover;">
-            <h1 class="glitch-title" data-text="UNASHAM3D">Testimonies</h1>
-            <p style="font-size: 1.2rem; letter-spacing: 3px; text-transform: uppercase; color: #ffffff; margin-bottom: 30px; text-shadow: 1px 2px 8px rgba(0,0,0,0.8);">New Single "By Our Side" Out Now</p>
+            <h1 class="glitch-title" data-text="UNASHAM3D">UNASHAM3D</h1>
+            <p style="font-size: 1.3rem; letter-spacing: 2px; text-transform: uppercase; color: #ffffff; margin-bottom: 30px; text-shadow: 1px 2px 8px rgba(0,0,0,0.8);">New Single "By Our Side" Out Now</p>
             <a href="https://www.youtube.com/watch?v=JunfZvX8Kb4&list=OLAK5uy_kCHTBOibnhrdmDOEAtaLF0G1gFCJ9KZFQ" class="btn">Listen Now</a>
     </header>
 
