@@ -81,20 +81,32 @@ nav{
     color:#fff;
 }
 
-/* HERO */
-#hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:0 20px;
-    background:
-    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.92)),
-    url('https://yt3.googleusercontent.com/gdgYl9cC21UeNpnfK0DzelYlqQurqRzB4fXBNfPL1lVu45PT_d1QRWAMMeBvnFwFzcGLB8f09Q=s160-c-k-c0x00ffffff-no-rj')
-    center/cover;
+
+        /* Hero Section */
+        #hero {
+            height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)), no-repeat center center/cover;
+            padding: 0 20px;
+        }
+#hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
+        #hero p {
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--muted-color);
+            margin-bottom: 30px;
+        }
 /* Glitch Effect Keyframes & Styles */
 .glitch-title {
     font-size: 5rem;
@@ -196,18 +208,6 @@ section h2::after{
     height:4px;
     background:var(--accent);
     margin:10px auto 0;
-}
-
-/* SPOTIFY GRID */
-.spotify-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:20px;
-}
-
-.spotify-grid iframe{
-    width:100%;
-    border:none;
 }
 
 /* DAILY VERSE */
