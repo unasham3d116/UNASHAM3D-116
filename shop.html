@@ -74,49 +74,6 @@
     100% { clip-path: inset(25% 0 60% 0); }
 }
 
-/* Daily Verse Section Styling */
-#daily-verse {
-    background-color: #0d0d0d;
-    text-align: center;
-    padding: 100px 10%;
-}
-#daily-verse h2 {
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 50px;
-    position: relative;
-}
-#daily-verse h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 4px;
-    background: var(--accent-color);
-    margin: 10px auto 0;
-}
-.verse-box {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 30px;
-    background: var(--card-bg);
-    border: 1px dashed var(--accent-color);
-    border-radius: 6px;
-}
-/* Style adjustments targeting the injected third-party widget content safely */
-#dailyVersesWrapper {
-    font-size: 1.2rem !important;
-    color: #ffffff !important;
-    line-height: 1.6;
-}
-#dailyVersesWrapper a {
-    color: var(--accent-color) !important;
-    text-decoration: none !important;
-    font-weight: bold;
-    display: block;
-    margin-top: 15px;
-}
-
 /* Adjust title sizing perfectly for small mobile screens */
 @media (max-width: 768px) {
     .glitch-title { font-size: 3.2rem; }
