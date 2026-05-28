@@ -87,6 +87,14 @@
     100% { clip-path: inset(25% 0 60% 0); }
 }
 
+        @font-face {
+  font-family: 'Amsterdam';
+  src: url('fonts/amsterdam.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Daily Verse Section Styling */
 #daily-verse {
     background-color: #0d0d0d;
@@ -396,10 +404,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 30px; /* Space between the image logo and text */
+  gap: 12px;
   color: #fff;
   margin-bottom: 20px;
-  font-family: sans-serif;
+  font-family: 'Amsterdam', sans-serif; /* Updated here */
 }
 
 .heading-logo {
