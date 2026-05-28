@@ -279,23 +279,28 @@
         }
 
         /* Footer */
-        footer {
+footer {
   background-color: #222;
   color: #090909;
   padding: 20px 0;
+  width: 100%;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; /* Stacks elements vertically */
+  justify-content: center; /* Centers items vertically along the main axis */
+  align-items: center;    /* Centers items horizontally */
+  gap: 15px;              /* Adds clean layout spacing between the copyright and the social links */
   padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .social-links {
   display: flex;
+  justify-content: center; /* Ensures the icons inside the link container are centered */
   gap: 17px; /* Spacing between icons */
 }
 
@@ -316,8 +321,11 @@
   width: 28px; /* Standard icon size */
   height: 28px;
 }
-        .footer-copyright {
+
+.footer-copyright {
   color: #00ff00; /* Replace with your preferred hex color code */
+  text-align: center; /* Forces the copyright text itself to center align */
+  margin: 0; /* Clears browser default paragraph margins */
 }
 
         /* Responsive Design */
