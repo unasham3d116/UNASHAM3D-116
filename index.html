@@ -179,13 +179,19 @@
             z-index: 1000;
             border-bottom: 1px solid #222;
         }
+
         .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            letter-spacing: 3px;
-            color: var(--text-color);
-            text-decoration: none;
-        }
+           display: inline-flex;
+           align-items: left;
+           gap: 10px; /* Space between logo image and text */
+           text-decoration: none;
+}
+
+.nav-logo-img {
+  height: 40px; /* Adjust this value to match your nav bar height */
+  width: auto;  /* Maintains the original aspect ratio */
+  object-fit: contain;
+}
         .logo span {
             color: var(--accent-color);
         }
@@ -489,9 +495,8 @@ audio::-webkit-media-controls-time-remaining-display {
 
     <!-- Navigation -->
     <nav>
-          <a href="index.html" class="logo">
-    <img src="images/unasham3dlogo.png" alt="UNASHAM3D Logo" class="nav-logo-img">
-    UNASHAM3D<span></span>
+            <a href="index.html" class="logo">
+    <img src="images/unasham3dlogo.png" alt="UNASHAM3D Logo" class="nav-logo-img"><span></span>
   </a>
 
             <!-- The Hidden Toggle Switch for Mobile -->
