@@ -393,10 +393,19 @@
 }
 
 .native-player-section h2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px; /* Space between the image logo and text */
   color: #fff;
   margin-bottom: 20px;
   font-family: sans-serif;
-  letter-spacing: 1px;
+}
+
+.heading-logo {
+  height: 32px; /* Scales the image to match standard h2 text height */
+  width: auto;  /* Keeps the image aspect ratio perfect without stretching */
+  object-fit: contain;
 }
 
 audio {
@@ -512,7 +521,10 @@ audio::-webkit-media-controls-time-remaining-display {
     </section>
 
     <section class="native-player-section">
-  <h2>STREAM UNASHAM3D MUSIC</h2>
+    <h2>
+    <img src="images/unasham3dlogo.png" alt="UNASHAM3D MUSIC" class="heading-logo">
+    <span>Playlist</span>
+  </h2>
   
   <!-- Native HTML5 Player -->
   <audio id="audio-player" controls>
