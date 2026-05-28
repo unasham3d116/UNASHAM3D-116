@@ -245,11 +245,46 @@ section h2::after{
 }
 
 /* FOOTER */
-footer{
-    text-align:center;
-    padding:40px;
-    border-top:1px solid #222;
-    color:var(--muted);
+        footer {
+  background-color: #222;
+  color: #090909;
+  padding: 20px 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px; /* Spacing between icons */
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Space between the logo and text */
+  text-decoration: none;
+  color: #00ff00; /* Changes text color */
+  transition: transform 0.2s ease; /* Keeps the smooth hover animation */
+}
+
+.social-links a:hover {
+  transform: scale(1.2); /* Subtle grow effect on hover */
+}
+
+.social-links img {
+  width: 26px; /* Standard icon size */
+  height: 26px;
+}
+
+.footer-copyright {
+  color: #a0a0a0; /* Replace with your preferred hex color code */
 }
 
 /* MOBILE MENU */
@@ -365,17 +400,38 @@ footer{
 
 
         <!-- Footer with Social Links -->
-    <footer style="text-align: center; padding: 60px 20px; border-top: 1px solid #222; color: var(--bg-color); font-size: 0.85rem;">
-        <!-- Social Icons Container -->
-        <div style="display: flex; justify-content: center; gap: 25px; margin-bottom: 30px;">
-            <a href="https://www.facebook.com/profile.php?id=61588652371878" target="_blank" style="color: #ffffff; font-weight: bold; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='#ffffff'">Facebook</a>
-            <a href="https://open.spotify.com/artist/2oXQMIhRG5rOxAtEjKGlUk?si=uV8eaeMtQnOviW7gr3-GMg" target="_blank" style="color: #ffffff; font-weight: bold; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='#ffffff'">Spotify</a>
-            <a href="https://www.youtube.com/@unasham3d-116-for-lif3" target="_blank" style="color: #ffffff; font-weight: bold; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='#ffffff'">YouTube</a>
-            <a href="https://music.apple.com/us/artist/unasham3d/1877469834" target="_blank" style="color: #ffffff; font-weight: bold; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='#ffffff'">Apple Music</a>
-        </div>
-        
-        <p style="color: #ffffff;"> &copy; 2026 UNASHAM3D. All Rights Reserved.</p>
-    </footer>
+<footer>
+  <div class="footer-container">
+    <p class="footer-copyright">&copy; 2026 UNASHAM3D. All rights reserved.</p>
+    
+    <div class="social-links">
+      <a href="https://www.youtube.com/@unasham3d-116-for-lif3" target="_blank" rel="noopener noreferrer">
+        <img src="images/youtube.svg" alt="YouTube">
+<span>YouTube</span>
+      </a>
+      <a href="https://open.spotify.com/artist/2oXQMIhRG5rOxAtEjKGlUk?si=uV8eaeMtQnOviW7gr3-GMg" target="_blank" rel="noopener noreferrer">
+        <img src="images/spotify.svg" alt="Spotify">
+<span>Spotify</span>
+      </a>
+      <a href="https://music.apple.com/us/artist/unasham3d/1877469834" target="_blank" rel="noopener noreferrer">
+        <img src="images/apple.svg" alt="Apple Nusic">
+<span>Apple Music</span>
+      </a>
+      <a href="https://soundcloud.com/unasham3d" target="_blank" rel="noopener noreferrer">
+        <img src="images/soundcloud.svg" alt="SoundCloud">
+<span>SoundCloud</span>
+      </a>
+      <a href="https://www.tiktok.com/@unasham3d116" target="_blank" rel="noopener noreferrer">
+        <img src="images/tiktok.svg" alt="TikTok">
+<span>TikTok</span>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61588652371878" target="_blank" rel="noopener noreferrer">
+        <img src="images/facebook.svg" alt="Facebook">
+<span>Facebook</span>
+      </a>
+    </div>
+  </div>
+</footer>
 
 <!-- Firebase SDK Modules -->
 <script type="module">
