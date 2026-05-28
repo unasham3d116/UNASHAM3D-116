@@ -382,25 +382,71 @@
     .menu-icon span::before { top: 8px; }
     .menu-icon span::after { top: -8px; }
 }
-.soundcloud-section {
-  max-width: 800px; /* Narrowed down from 1200px so the playlist doesn't stretch too wide */
-  margin: 50px auto; 
-  padding: 0 20px;
+.native-player-section {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 25px;
+  background: #121212; /* Deep dark theme */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   text-align: center;
 }
 
-.soundcloud-section h2 {
+.native-player-section h2 {
   color: #fff;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   font-family: sans-serif;
   letter-spacing: 1px;
 }
 
-.playlist-container {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Stronger shadow for the larger player */
-  border-radius: 12px;
-  overflow: hidden; 
-  background: #000; /* Dark background placeholder while the player loads */
+audio {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+/* Customizing the default browser player color where supported */
+audio::-webkit-media-controls-panel {
+  background-color: #222;
+}
+
+#playlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+#playlist li {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  color: #b3b3b3;
+  cursor: pointer;
+  border-bottom: 1px solid #1a1a1a;
+  font-family: sans-serif;
+  transition: all 0.2s ease;
+}
+
+#playlist li:hover {
+  background: #1c1c1c;
+  color: #fff;
+}
+
+#playlist li.active {
+  background: #282828;
+  color: #00ff66; /* Vibrant active accent color (change to match your scheme) */
+  font-weight: bold;
+  border-left: 4px solid #00ff66;
+}
+
+.track-number {
+  margin-right: 15px;
+  opacity: 0.6;
+  font-size: 0.9em;
+}
+
+.track-title {
+  flex-grow: 1;
 }
         @media (max-width: 768px) {
     /* ... your existing mobile menu and layout overrides ... */
@@ -460,12 +506,42 @@
         </div>
     </section>
 
-<section class="soundcloud-section">
-  <h2>Stream the Genres of UNASHAM3D!</h2>
-  <div class="playlist-container">
-  <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2244143252&color=%23686860&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/unasham3d" title="UNASHAM3D" target="_blank" style="color: #cccccc; text-decoration: none;">UNASHAM3D</a> · <a href="https://soundcloud.com/unasham3d/sets/website" title="The Moods" target="_blank" style="color: #cccccc; text-decoration: none;">The Moods</a></div>
-    <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://soundcloud.com"></iframe>
-  </div>
+    <section class="native-player-section">
+  <h2>UNASHAM3D Playlist</h2>
+  
+  <!-- Native HTML5 Player -->
+  <audio id="audio-player" controls>
+    <source src="music/he-knows-my-name.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- UNASHAM3D 6-Track Queue -->
+  <ul id="playlist">
+    <li class="active" data-src="music/he-knows-my-name.mp3">
+      <span class="track-number">01</span>
+      <span class="track-title">He Knows My Name</span>
+    </li>
+    <li data-src="music/call-from-heaven.mp3">
+      <span class="track-number">02</span>
+      <span class="track-title">Call From Heaven</span>
+    </li>
+    <li data-src="music/clenched-teeth.mp3">
+      <span class="track-number">03</span>
+      <span class="track-title">Clenched Teeth</span>
+    </li>
+    <li data-src="music/the-noise.mp3">
+      <span class="track-number">04</span>
+      <span class="track-title">THE NOISE</span>
+    </li>
+    <li data-src="music/i-found-the-truth.mp3">
+      <span class="track-number">05</span>
+      <span class="track-title">I Found The Truth</span>
+    </li>
+    <li data-src="music/hollow.mp3">
+      <span class="track-number">06</span>
+      <span class="track-title">HOLLOW</span>
+    </li>
+  </ul>
 </section>
 
 
@@ -617,6 +693,41 @@
     </script>
     <script data-goatcounter="https://unasham3d.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+
+    <script>
+  const player = document.getElementById('audio-player');
+  const tracks = document.querySelectorAll('#playlist li');
+  let currentTrackIndex = 0;
+
+  function playTrack(index) {
+    if (index >= 0 && index < tracks.length) {
+      tracks.forEach(t => t.classList.remove('active'));
+      
+      currentTrackIndex = index;
+      tracks[currentTrackIndex].classList.add('active');
+      
+      player.src = tracks[currentTrackIndex].getAttribute('data-src');
+      player.play();
+    }
+  }
+
+  tracks.forEach((track, index) => {
+    track.addEventListener('click', function() {
+      playTrack(index);
+    });
+  });
+
+  player.addEventListener('ended', function() {
+    let nextIndex = currentTrackIndex + 1;
+    
+    // Auto-loops back to track 1 when track 6 finishes
+    if (nextIndex >= tracks.length) {
+      nextIndex = 0; 
+    }
+    
+    playTrack(nextIndex);
+  });
+</script>
 
 
 </body>
