@@ -408,6 +408,11 @@ audio {
 audio::-webkit-media-controls-panel {
   background-color: #222;
 }
+        /* For Chrome, Edge, Safari, and Opera */
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+  color: #00ff00 !important;
+}
 
 #playlist {
   list-style: none;
@@ -434,7 +439,7 @@ audio::-webkit-media-controls-panel {
 
 #playlist li.active {
   background: #282828;
-  color: #00ff66; /* Vibrant active accent color (change to match your scheme) */
+  color: #00ff00; /* Vibrant active accent color (change to match your scheme) */
   font-weight: bold;
   border-left: 4px solid #00ff66;
 }
@@ -507,7 +512,7 @@ audio::-webkit-media-controls-panel {
     </section>
 
     <section class="native-player-section">
-  <h2>UNASHAM3D Playlist</h2>
+  <h2>STREAM UNASHAM3D MUSIC</h2>
   
   <!-- Native HTML5 Player -->
   <audio id="audio-player" controls>
