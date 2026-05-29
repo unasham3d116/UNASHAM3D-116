@@ -116,12 +116,17 @@
             border-bottom: 1px solid #222;
         }
         .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            letter-spacing: 3px;
-            color: var(--text-color);
-            text-decoration: none;
-        }
+           display: inline-flex;
+           align-items: left;
+           gap: 10px; /* Space between logo image and text */
+           text-decoration: none;
+}
+
+.nav-logo-img {
+  height: 50px; /* Adjust this value to match your nav bar height */
+  width: auto;  /* Maintains the original aspect ratio */
+  object-fit: contain;
+}
         .logo span {
             color: var(--accent-color);
         }
@@ -208,24 +213,29 @@
         }
 
         /* Footer */
-        footer {
+footer {
   background-color: #222;
   color: #090909;
   padding: 20px 0;
+  width: 100%;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; /* Stacks elements vertically */
+  justify-content: center; /* Centers items vertically along the main axis */
+  align-items: center;    /* Centers items horizontally */
+  gap: 15px;              /* Adds clean layout spacing between the copyright and the social links */
   padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .social-links {
   display: flex;
-  gap: 15px; /* Spacing between icons */
+  justify-content: center; /* Ensures the icons inside the link container are centered */
+  gap: 17px; /* Spacing between icons */
 }
 
 .social-links a {
@@ -242,12 +252,14 @@
 }
 
 .social-links img {
-  width: 26px; /* Standard icon size */
-  height: 26px;
+  width: 28px; /* Standard icon size */
+  height: 28px;
 }
 
 .footer-copyright {
-  color: #a0a0a0; /* Replace with your preferred hex color code */
+  color: #00ff00; /* Replace with your preferred hex color code */
+  text-align: center; /* Forces the copyright text itself to center align */
+  margin: 0; /* Clears browser default paragraph margins */
 }
 
         /* Responsive Design */
@@ -332,7 +344,9 @@
 
     <!-- Navigation -->
     <nav>
-        <a href="index.html" class="logo">UNASHAM3D<span></span></a>
+            <a href="index.html" class="logo">
+    <img src="images/unasham3dlogo.png" alt="UNASHAM3D Logo" class="nav-logo-img"><span></span>
+  </a>
 
             <!-- The Hidden Toggle Switch for Mobile -->
     <input type="checkbox" id="menu-toggle">
@@ -379,36 +393,30 @@
 
         <!-- Footer with Social Links -->
 <footer>
-  <div class="footer-container">
-    <p class="footer-copyright">&copy; 2026 UNASHAM3D. All rights reserved.</p>
     
     <div class="social-links">
       <a href="https://www.youtube.com/@unasham3d-116-for-lif3" target="_blank" rel="noopener noreferrer">
         <img src="images/youtube.svg" alt="YouTube">
-<span>YouTube</span>
       </a>
       <a href="https://open.spotify.com/artist/2oXQMIhRG5rOxAtEjKGlUk?si=uV8eaeMtQnOviW7gr3-GMg" target="_blank" rel="noopener noreferrer">
         <img src="images/spotify.svg" alt="Spotify">
-<span>Spotify</span>
       </a>
       <a href="https://music.apple.com/us/artist/unasham3d/1877469834" target="_blank" rel="noopener noreferrer">
         <img src="images/apple.svg" alt="Apple Nusic">
-<span>Apple Music</span>
       </a>
       <a href="https://soundcloud.com/unasham3d" target="_blank" rel="noopener noreferrer">
         <img src="images/soundcloud.svg" alt="SoundCloud">
-<span>SoundCloud</span>
       </a>
       <a href="https://www.tiktok.com/@unasham3d116" target="_blank" rel="noopener noreferrer">
         <img src="images/tiktok.svg" alt="TikTok">
-<span>TikTok</span>
       </a>
       <a href="https://www.facebook.com/profile.php?id=61588652371878" target="_blank" rel="noopener noreferrer">
         <img src="images/facebook.svg" alt="Facebook">
-<span>Facebook</span>
       </a>
-    </div>
   </div>
+      <div class="footer-container">
+    <p class="footer-copyright">&copy; 2026 UNASHAM3D. All rights reserved.</p>
+      </div>
 </footer>
 
 </body>
